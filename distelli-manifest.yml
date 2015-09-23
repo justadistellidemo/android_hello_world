@@ -1,5 +1,8 @@
 kdehoop/Android-Hello-World:
 
+  PkgInclude:
+    - '**'
+
   PreRelease:
     - echo "Start Build"
     - chmod +x gradlew
