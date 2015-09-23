@@ -1,4 +1,5 @@
 kdehoop/Android-Hello-World:
 
   PreRelease:
-    - echo "test"
+    - echo "Start Build"
+    - chmod +x gradlew
