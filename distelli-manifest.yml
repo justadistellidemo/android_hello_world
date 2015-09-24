@@ -1,3 +1,18 @@
 kdehoop/Android-Hello-World:
   PkgInclude:
     - '**'
+
+  PreRelease:
+    - for v in $(ls /usr/local/android-sdk/build-tools/ | sort -r 2>/dev/null);
+    - do echo build-tools-$v; done;
+    - java -Xmx32m -version
+    - javac -J-Xmx32m -version
+    - if [[ -f gradlew ]];
+    - then ./gradlew build connectedCheck
+    - elif [[ -f build.gradle ]];
+    - then gradle build connectedCheck
+    - elif [[ -f pom.xml ]];
+    - then mvn install -B
+    - else
+    - ant debug install test
+    - fi
